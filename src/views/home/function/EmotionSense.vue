@@ -24,11 +24,33 @@
         <div class="flex ml-2">
           <button
             type="button"
-            class="bg-green-400 hover:bg-green-700 text-white font-medium py-2 px-10 rounded mt-10 text-xl open-btn"
-            data-modal="modal-1"
+            plain
+            @click="dialogVisible = true"
+            class="bg-green-400 hover:bg-green-700 text-white font-medium py-2 px-10 rounded mt-10 text-xl"
           >
             观看演示视频
           </button>
+          <el-dialog
+            v-model="dialogVisible"
+            title="情绪识别功能演示"
+            width="1200"
+            :style="{ height: '700px' }"
+            :before-close="handleClose"
+          >
+            <div class="flex justify-center items-center px-4 py-2">
+              <video
+                ref="videoPlayer"
+                src="/src/assets/videos/情绪识别.mp4"
+                style="width: 2000px; height: 550px; object-fit: cover"
+                controls
+              ></video>
+            </div>
+            <template #footer>
+              <div class="dialog-footer">
+                <el-button type="primary" @click="dialogVisible = false">完成</el-button>
+              </div>
+            </template>
+          </el-dialog>
           <button
             class="hover:bg-gray-300 text-black border-2 font-medium py-2 px-6 rounded mt-10 text-xl ml-4"
           >
@@ -66,6 +88,18 @@
 
 <script setup>
 import { inject } from 'vue'
+import { ref } from 'vue'
+
+const dialogVisible = ref(false)
+const videoPlayer = ref(null)
+
+const handleClose = (done) => {
+  if (videoPlayer.value) {
+    videoPlayer.value.pause() // 暂停视频
+    videoPlayer.value.currentTime = 0 // 将视频重置到开头
+  }
+  done() // 关闭模态框
+}
 
 const activeNavItem = inject('activeNavItem')
 const selectNavItem = inject('selectNavItem')

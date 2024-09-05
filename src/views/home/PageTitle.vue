@@ -14,7 +14,7 @@
     <div class="flex justify-center">
       <button
         class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-10 rounded mt-10"
-        onclick="smoothScroll('#nav-title')"
+        @click="smoothScroll"
       >
         了解更多
       </button>
@@ -29,10 +29,17 @@
     <img
       src="/src/assets/imgs/undraw_artificial_intelligence_re_enpp (1).svg"
       alt=""
-      style="position: absolute; height: 360px; bottom: 0; right: 500px"
+      style="position: absolute; height: 360px; bottom: 0; right: 500px; right: 320px"
     />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const smoothScroll = () => {
+  const element = document.getElementById('nav-title') // 获取目标元素
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' }) // 执行平滑滚动
+  }
+}
+</script>
 <style scoped></style>

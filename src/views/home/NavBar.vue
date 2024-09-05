@@ -1,43 +1,45 @@
 <template>
-  <div id="nav-title">
+  <div id="nav-title" ref="navTitleRef">
     <h1 class="text-center text-3xl font-normal pt-20 pb-8 tracking-wider text-gray-600">
       智悦康养·家园卫士提供多种功能，助您健康生活
     </h1>
   </div>
-  <nav class="grid grid-cols-4 mx-80 mt-6 text-center">
-    <router-link
-      to="/home/emotion-sense"
-      id="nav-item-1"
-      class="nav-item"
-      :class="{ active: activeNavItem === 'nav-item-1' }"
-      @click.prevent="selectNavItem('nav-item-1')"
-      ><img src="/src/assets/icons/happy.svg" class="w-8 h-8 mr-2" />情绪识别</router-link
-    >
-    <router-link
-      to="/home/fire-dedication"
-      id="nav-item-2"
-      class="nav-item"
-      :class="{ active: activeNavItem === 'nav-item-2' }"
-      @click.prevent="selectNavItem('nav-item-2')"
-      ><img src="/src/assets/icons/fire.svg" class="w-8 h-8 mr-2" />火灾监测</router-link
-    >
-    <router-link
-      to="/home/chess-game"
-      id="nav-item-3"
-      class="nav-item"
-      :class="{ active: activeNavItem === 'nav-item-3' }"
-      @click.prevent="selectNavItem('nav-item-3')"
-      ><img src="/src/assets/icons/chess.svg" class="w-8 h-8 mr-2" />象棋游戏</router-link
-    >
-    <router-link
-      to="/home/house-monitoring"
-      id="nav-item-4"
-      class="nav-item"
-      :class="{ active: activeNavItem === 'nav-item-4' }"
-      @click.prevent="selectNavItem('nav-item-4')"
-      ><img src="/src/assets/icons/monitor.svg" class="w-8 h-8 mr-2" />全屋监控</router-link
-    >
-  </nav>
+  <div class="nav-with-lines">
+    <nav class="grid grid-cols-4 mx-80 mt-6 text-center">
+      <router-link
+        to="/home/emotion-sense"
+        id="nav-item-1"
+        class="nav-item"
+        :class="{ active: activeNavItem === 'nav-item-1' }"
+        @click.prevent="selectNavItem('nav-item-1')"
+        ><img src="/src/assets/icons/happy.svg" class="w-8 h-8 mr-2" />情绪识别</router-link
+      >
+      <router-link
+        to="/home/fire-dedication"
+        id="nav-item-2"
+        class="nav-item"
+        :class="{ active: activeNavItem === 'nav-item-2' }"
+        @click.prevent="selectNavItem('nav-item-2')"
+        ><img src="/src/assets/icons/fire.svg" class="w-8 h-8 mr-2" />火灾监测</router-link
+      >
+      <router-link
+        to="/home/chess-game"
+        id="nav-item-3"
+        class="nav-item"
+        :class="{ active: activeNavItem === 'nav-item-3' }"
+        @click.prevent="selectNavItem('nav-item-3')"
+        ><img src="/src/assets/icons/chess.svg" class="w-8 h-8 mr-2" />象棋游戏</router-link
+      >
+      <router-link
+        to="/home/house-monitoring"
+        id="nav-item-4"
+        class="nav-item"
+        :class="{ active: activeNavItem === 'nav-item-4' }"
+        @click.prevent="selectNavItem('nav-item-4')"
+        ><img src="/src/assets/icons/monitor.svg" class="w-8 h-8 mr-2" />全屋监控</router-link
+      >
+    </nav>
+  </div>
 
   <router-view></router-view>
 </template>
@@ -65,22 +67,27 @@ nav a {
   letter-spacing: 1px;
   transition: 300ms;
 }
-/* 黑线 */
-nav::before,
-nav::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  width: 320px;
-  height: 1.5px;
-  background-color: #d1d5db;
+
+.nav-with-lines {
+  position: relative;
+  padding-bottom: 0px;
 }
 
-nav::before {
+.nav-with-lines::before,
+.nav-with-lines::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 320px;
+  height: 2px;
+  background-color: #e5e7eb; /* 你可以修改颜色 */
+}
+
+.nav-with-lines::before {
   left: 0;
 }
 
-nav::after {
+.nav-with-lines::after {
   right: 0;
 }
 
