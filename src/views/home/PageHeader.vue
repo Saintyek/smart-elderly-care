@@ -6,8 +6,8 @@
       </div>
       <div class="text-black text-xl font-semibold">
         <button plain @click="dialogVisible = true" class="btnLogin-popup px-4 py-2">请登录</button>
-        <el-dialog v-model="dialogVisible" width="500" :before-close="handleClose">
-          <LoginPage />
+        <el-dialog v-model="dialogVisible" width="500">
+          <LoginPage @login-success="handleLoginSuccess" />
         </el-dialog>
       </div>
     </div>
@@ -19,6 +19,10 @@ import LoginPage from '../login/LoginPage.vue'
 import { ref } from 'vue'
 
 const dialogVisible = ref(false)
+
+const handleLoginSuccess = () => {
+  dialogVisible.value = false
+}
 </script>
 <style scoped>
 .btnLogin-popup {
