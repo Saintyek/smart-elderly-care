@@ -5,7 +5,19 @@
         <img src="/src/assets/imgs/logo.png" alt="" />
       </div>
       <div class="text-black text-xl font-semibold">
-        <button plain @click="dialogVisible = true" class="btnLogin-popup px-4 py-2">请登录</button>
+        <!-- 当没有token时显示登录按钮 -->
+        <button
+          v-if="!userStore.token"
+          plain
+          @click="dialogVisible = true"
+          class="btnLogin-popup px-4 py-2"
+        >
+          请登录
+        </button>
+
+        <!-- 当有 token 时显示头像 -->
+        <el-avatar v-else :icon="UserFilled" />
+
         <el-dialog v-model="dialogVisible" width="500">
           <LoginPage @login-success="handleLoginSuccess" />
         </el-dialog>
@@ -16,9 +28,11 @@
 
 <script setup>
 import LoginPage from '../login/LoginPage.vue'
+import { useUserStore } from '@/stores'
 import { ref } from 'vue'
 
 const dialogVisible = ref(false)
+const userStore = useUserStore()
 
 const handleLoginSuccess = () => {
   dialogVisible.value = false
