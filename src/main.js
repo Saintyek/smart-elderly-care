@@ -4,9 +4,4 @@ import router from './router'
 import pinia from './stores/index'
 import './assets/tailwind.css'
 
-const app = createApp(App)
-
-app.use(pinia)
-app.use(router)
-
-app.mount('#app')
+createApp(App).use(pinia).use(router).mount('#app')

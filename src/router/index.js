@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useUserStore } from '@/stores'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,8 +26,18 @@ const router = createRouter({
           component: () => import('@/views/home/function/HouseMonitoring.vue')
         }
       ]
+    },
+    {
+      path: '/user/profile',
+      component: () => import('@/views/user/PersonalCenter.vue')
     }
   ]
 })
 
+// 登录访问拦截
+router.beforeEach((to) => {
+  // 如果没有Token且访问用户界面则拦截到首页
+  const useStore = useUserStore()
+  if (!useStore.token && to.path == '/user/profile') return '/home/emotion-sense'
+})
 export default router

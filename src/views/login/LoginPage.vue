@@ -92,7 +92,7 @@ import { ref, watch } from 'vue'
 import { userRegisterService, userLoginService } from '@/api/user'
 import { useUserStore } from '@/stores'
 import router from '@/router'
-const isRegister = ref(true)
+const isRegister = ref(false)
 const form = ref()
 
 // 用于提交的form数据对象

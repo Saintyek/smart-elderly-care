@@ -17,12 +17,17 @@ export const useUserStore = defineStore(
     }
 
     const user = ref({})
+
     const getUser = async () => {
       const res = await userGetInfoService() // 请求获取数据
       user.value = res.data.data
     }
 
-    return { token, setToken, removeToken, user, getUser }
+    const setUser = (obj) => {
+      user.value = obj
+    }
+
+    return { token, setToken, removeToken, user, getUser, setUser }
   },
   {
     persist: true // 持久化
