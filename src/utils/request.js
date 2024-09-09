@@ -38,7 +38,7 @@ instance.interceptors.response.use(
     // 处理401错误
     // 特殊情况：401权限不足 或 token过期 => 拦截到登录
     if (err.response?.status === 401) {
-      router.push('/login')
+      router.push('/home/emotion-sense')
     }
 
     // 默认情况 => 只要给提示

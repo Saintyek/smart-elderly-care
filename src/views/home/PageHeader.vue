@@ -17,11 +17,12 @@
 
         <!-- 当有 token 时显示头像，并添加下拉菜单 -->
         <el-dropdown @command="handleCommand" v-else>
-          <span class="el-dropdown-link" style="display: flex; align-items: center">
-            <el-avatar :size="55" :src="circleUrl" /><el-icon
-              style="margin-left: 8px; font-size: 16px"
-              ><arrow-down
-            /></el-icon>
+          <span class="el-dropdown-link flex items-center" style="overflow: hidden">
+            <el-avatar
+              :size="55"
+              :src="userStore.user.user_pic || circleUrl"
+              class="object-cover"
+            /><el-icon style="margin-left: 8px; font-size: 16px"><arrow-down /></el-icon>
           </span>
           <template #dropdown>
             <el-dropdown-menu class="w-32">
