@@ -5,23 +5,26 @@
         <p>基本资料</p>
       </div>
       <div class="flex-grow mt-2">
-        <el-form :model="form" :rules="rules" ref="formRef" label-width="100px" class="relative">
-          <!-- 登录名称 -->
+        <el-form
+          :model="form"
+          :rules="rules"
+          ref="formRef"
+          label-width="100px"
+          size="large"
+          class="relative"
+        >
           <el-form-item label="登录名称" class="font-bold">
-            <el-input v-model="form.username" disabled class="h-10"></el-input>
+            <el-input v-model="form.username" disabled></el-input>
           </el-form-item>
 
-          <!-- 用户昵称 -->
           <el-form-item label="用户昵称" prop="nickname" class="font-bold">
-            <el-input v-model="form.nickname" placeholder="请输入用户昵称" class="h-10"></el-input>
+            <el-input v-model="form.nickname" placeholder="请输入用户昵称"></el-input>
           </el-form-item>
 
-          <!-- 用户邮箱 -->
           <el-form-item label="用户邮箱" prop="email" class="font-bold">
-            <el-input v-model="form.email" placeholder="请输入用户邮箱" class="h-10"></el-input>
+            <el-input v-model="form.email" placeholder="请输入用户邮箱"></el-input>
           </el-form-item>
 
-          <!-- 提交按钮 -->
           <el-form-item class="absolute right-0">
             <el-button type="primary" @click="onSubmit">提交修改</el-button>
           </el-form-item>
@@ -81,7 +84,7 @@ const onSubmit = async () => {
 
 <style scoped>
 .underline-container {
-  display: inline-block; /* 确保下划线长度与文字一致 */
+  display: inline-block;
   position: relative;
 }
 

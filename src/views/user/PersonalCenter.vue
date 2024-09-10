@@ -1,8 +1,11 @@
 <template>
   <PageHeader />
   <PageTitle />
-  <UserProfile />
   <ChangeAvatar />
+  <UserProfile />
+  <ResetPassword />
+  <GiveAdvice />
+  <PageFooter />
 </template>
 
 <script setup>
@@ -12,6 +15,9 @@ import UserProfile from './UserProfile.vue'
 import ChangeAvatar from './ChangeAvatar.vue'
 import { useUserStore } from '@/stores'
 import { onMounted } from 'vue'
+import ResetPassword from './ResetPassword.vue'
+import PageFooter from '../home/PageFooter.vue'
+import GiveAdvice from './GiveAdvice.vue'
 
 const userStore = useUserStore()
 onMounted(() => {
