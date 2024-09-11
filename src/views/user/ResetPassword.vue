@@ -1,41 +1,39 @@
 <template>
   <div class="flex flex-col">
-    <div class="background-container">
-      <div class="mx-96 mt-20 flex items-start justify-between">
-        <div class="text-2xl font-bold underline-container mr-96">
-          <p>重置密码</p>
-        </div>
-        <div class="flex-grow mt-2">
-          <el-form
-            :model="pwdForm"
-            :rules="rules"
-            ref="formRef"
-            label-width="100px"
-            size="large"
-            class="relative"
-          >
-            <el-form-item label="原密码" prop="old_pwd" class="font-bold">
-              <el-input v-model="pwdForm.old_pwd" type="password"></el-input>
-            </el-form-item>
-
-            <el-form-item label="新密码" prop="new_pwd" class="font-bold">
-              <el-input v-model="pwdForm.new_pwd" type="password"></el-input>
-            </el-form-item>
-
-            <el-form-item label="确认新密码" prop="re_pwd" class="font-bold">
-              <el-input v-model="pwdForm.re_pwd" type="password"></el-input>
-            </el-form-item>
-
-            <el-form-item class="absolute right-0">
-              <el-button @click="submitForm" type="primary" class="mr-12">修改密码</el-button>
-              <el-button @click="resetForm">重置</el-button>
-            </el-form-item>
-          </el-form>
-        </div>
+    <div class="mx-96 mt-20 flex items-start justify-between">
+      <div class="text-2xl font-bold underline-container mr-96">
+        <p>重置密码</p>
       </div>
-      <!-- 分隔线 -->
-      <div class="border-t border-gray-300 mt-24 mx-96"></div>
+      <div class="flex-grow mt-2">
+        <el-form
+          :model="pwdForm"
+          :rules="rules"
+          ref="formRef"
+          label-width="100px"
+          size="large"
+          class="relative"
+        >
+          <el-form-item label="原密码" prop="old_pwd" class="font-bold">
+            <el-input v-model="pwdForm.old_pwd" type="password"></el-input>
+          </el-form-item>
+
+          <el-form-item label="新密码" prop="new_pwd" class="font-bold">
+            <el-input v-model="pwdForm.new_pwd" type="password"></el-input>
+          </el-form-item>
+
+          <el-form-item label="确认新密码" prop="re_pwd" class="font-bold">
+            <el-input v-model="pwdForm.re_pwd" type="password"></el-input>
+          </el-form-item>
+
+          <el-form-item class="absolute right-0">
+            <el-button @click="submitForm" type="primary" class="mr-12">修改密码</el-button>
+            <el-button @click="resetForm">重置</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
+    <!-- 分隔线 -->
+    <div class="border-t border-gray-300 mt-24 mx-96"></div>
   </div>
 </template>
 
@@ -134,24 +132,5 @@ const rules = {
   width: 30%;
   height: 4px;
   background-color: rgb(51, 112, 255);
-}
-
-.background-container {
-  position: relative;
-}
-
-.background-container::before,
-.background-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0px;
-  width: 60%; // 距左侧位置
-  background-image: url('/src/assets/imgs/1f2d1d842f54084d0f31003fd51b8b5a71bd450a0216286d9763170787ef58d7.png'); /* 替换为你的背景图片路径 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-size: 600px 530px;
-  background-position: center;
-  z-index: -1;
 }
 </style>

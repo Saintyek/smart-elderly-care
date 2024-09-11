@@ -1,46 +1,44 @@
 <template>
   <div class="flex flex-col" id="change-avatar">
-    <div class="background-container">
-      <div class="mx-96 mt-28 flex items-start justify-between">
-        <div class="text-2xl font-bold underline-container">
-          <p>更换头像</p>
-        </div>
-        <div>
-          <el-upload
-            ref="uploadRef"
-            class="avatar-uploader"
-            :show-file-list="false"
-            :auto-upload="false"
-            :on-change="onSelectFile"
-            drag
-          >
-            <div>
-              <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-              <div v-else class="flex flex-col items-center">
-                <p class="text-gray-500 text-2xl font-bold pt-4">将您的头像拖拽至此处</p>
-                <el-icon class="avatar-uploader-icon"><Plus /></el-icon>
-              </div>
+    <div class="mx-96 mt-28 flex items-start justify-between">
+      <div class="text-2xl font-bold underline-container">
+        <p>更换头像</p>
+      </div>
+      <div>
+        <el-upload
+          ref="uploadRef"
+          class="avatar-uploader"
+          :show-file-list="false"
+          :auto-upload="false"
+          :on-change="onSelectFile"
+          drag
+        >
+          <div>
+            <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+            <div v-else class="flex flex-col items-center">
+              <p class="text-gray-500 text-2xl font-bold pt-4">将您的头像拖拽至此处</p>
+              <el-icon class="avatar-uploader-icon"><Plus /></el-icon>
             </div>
-          </el-upload>
-
-          <br />
-          <div class="flex justify-between">
-            <el-button
-              @click="uploadRef.$el.querySelector('input').click()"
-              type="primary"
-              :icon="Plus"
-              size="large"
-              >选择图片</el-button
-            >
-            <el-button @click="onUpdateAvatar" type="success" :icon="Upload" size="large"
-              >上传头像</el-button
-            >
           </div>
+        </el-upload>
+
+        <br />
+        <div class="flex justify-between">
+          <el-button
+            @click="uploadRef.$el.querySelector('input').click()"
+            type="primary"
+            :icon="Plus"
+            size="large"
+            >选择图片</el-button
+          >
+          <el-button @click="onUpdateAvatar" type="success" :icon="Upload" size="large"
+            >上传头像</el-button
+          >
         </div>
       </div>
-      <!-- 分隔线 -->
-      <div class="border-t border-gray-300 mt-16 mx-96"></div>
     </div>
+    <!-- 分隔线 -->
+    <div class="border-t border-gray-300 mt-16 mx-96"></div>
   </div>
 </template>
 
@@ -114,25 +112,5 @@ const onUpdateAvatar = async () => {
       text-align: center;
     }
   }
-}
-
-.background-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.background-container::before,
-.background-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0px;
-  width: 60%; // 距左侧位置
-  background-image: url('/src/assets/imgs/1f2d1d842f54084d0f31003fd51b8b5a71bd450a0216286d9763170787ef58d7.png'); /* 替换为你的背景图片路径 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-size: 600px 530px;
-  background-position: center;
-  z-index: -1;
 }
 </style>

@@ -55,7 +55,7 @@
             </div>
           </button>
         </div>
-        <button class="mt-10 flex group mx-auto">
+        <button class="mt-10 flex group mx-auto" @click="drawerStore.openDrawer">
           <p class="flex group-hover:underline group-hover:text-blue-500">
             查看历史反馈
             <ArrowRight class="w-4 h-4 mt-1 ml-2" />
@@ -69,7 +69,9 @@
 <script setup>
 import { ArrowRight } from '@element-plus/icons-vue'
 import { useUserStore } from '@/stores'
+import { useDrawerStore } from '@/stores/modules/drawer'
 const userStore = useUserStore()
+const drawerStore = useDrawerStore()
 
 const scrollToUpdate = () => {
   const element = document.getElementById('change-avatar') // 获取目标元素
