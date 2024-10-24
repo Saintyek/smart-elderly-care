@@ -3,7 +3,7 @@
     <h1
       class="text-white text-3xl font-bold bg-cover bg-center w-full h-64"
       style="
-        background-image: url('/src/assets/imgs/bg.png');
+        background-image: url('/src/assets/imgs/background.png');
         padding-left: 510px;
         padding-top: 70px;
       "
