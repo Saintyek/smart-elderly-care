@@ -30,7 +30,7 @@
           </button>
           <el-dialog
             v-model="dialogVisible"
-            title="火灾监测功能演示"
+            title="象棋游戏功能演示"
             width="1200"
             :style="{ height: '700px' }"
             :before-close="handleClose"
@@ -52,7 +52,7 @@
           <button
             class="hover:bg-gray-300 text-black border-2 font-medium py-2 px-6 rounded mt-10 text-xl ml-4"
           >
-            <a href="#">开始游戏</a>
+            <a href="http://chess.zhiyuecare.top:3888/" target="_blank">开始游戏</a>
           </button>
         </div>
         <div class="flex mt-4">

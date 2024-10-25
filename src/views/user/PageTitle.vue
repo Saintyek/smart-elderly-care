@@ -2,11 +2,7 @@
   <div class="flex flex-col">
     <h1
       class="text-white text-3xl font-bold bg-cover bg-center w-full h-64"
-      style="
-        background-image: url('/src/assets/imgs/background.png');
-        padding-left: 510px;
-        padding-top: 70px;
-      "
+      :style="backgroundStyle"
     >
       个人中心
     </h1>
@@ -70,6 +66,13 @@
 import { ArrowRight } from '@element-plus/icons-vue'
 import { useUserStore } from '@/stores'
 import { useDrawerStore } from '@/stores/modules/drawer'
+import backgroundImage from '/src/assets/imgs/background.png'
+const backgroundStyle = {
+  backgroundImage: `url(${backgroundImage})`,
+  paddingLeft: '510px',
+  paddingTop: '70px'
+}
+
 const userStore = useUserStore()
 const drawerStore = useDrawerStore()
 
